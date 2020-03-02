@@ -1,0 +1,9 @@
+<template>
+  <template if:true={recordId}>
+    <div class="slds-m-around_medium">
+      <lightning-button label="Go to Opportunity Record" onclick={navigateToContact} class="slds-m-right_x-small"></lightning-button>
+      <lightning-button label="Go to Edit Opportunity" onclick={navigateToEdit}></lightning-button>
+    </div>
+  </template>
+  <!-- <template if:true={contact.error}> <c-error-panel errors={contact.error}></c-error-panel> </template> <c-view-source source="lwc/navToRecord" slot="footer"> Navigate to a record page. In this example, a contact. </c-view-source> -->
+</template>

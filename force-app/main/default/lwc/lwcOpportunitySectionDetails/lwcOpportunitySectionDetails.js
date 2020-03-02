@@ -3,9 +3,7 @@ import {
     track,
     api
 } from 'lwc';
-import {
-    ShowToastEvent
-} from 'lightning/platformShowToastEvent';
+
 
 import NAME_FIELD from '@salesforce/schema/Opportunity.Name';
 import CLOSEDATE_FIELD from '@salesforce/schema/Opportunity.CloseDate';
@@ -67,5 +65,7 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
         const modal = this.template.querySelector('c-lwc-generic-modal-edit');
         modal.hide();
     }
+
+
 
 }
