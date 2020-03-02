@@ -1,0 +1,11 @@
+<template>
+  <lightning-card title={strTitle} icon-name="standard:record">{recordId}
+    <div class="slds-m-around_medium">
+
+      <div if:true={recordId}>
+        <lightning-record-form record-id={recordId} object-api-name={objectName} fields={fields} mode="edit" columns="2" onsubmit={handleSubmit}></lightning-record-form>
+      </div>
+    </div>
+  </lightning-card>
+
+</template>

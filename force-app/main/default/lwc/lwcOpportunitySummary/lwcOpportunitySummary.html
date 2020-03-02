@@ -1,0 +1,64 @@
+<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
+<template>
+  <div class="c-container">
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item padding="around-small" size="12">
+        <div class="page-section page-header">
+          <h2>Summmary - {recordId}</h2>
+        </div>
+
+      </lightning-layout-item>
+
+      <lightning-layout-item padding="around-small" size="12">
+        <lightning-layout>
+          <lightning-layout-item padding="around-small" size="6">
+            <div class="page-section page-left">
+              <lightning-layout>
+                <lightning-layout-item padding="around-small" size="12">
+                  <div class="page-section">
+                    <h2>First Column-ROW 1</h2>
+                    <p>
+                      Component comes here
+                    </p>
+                    <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
+                  </div>
+                </lightning-layout-item>
+              </lightning-layout>
+
+              <lightning-layout>
+                <lightning-layout-item padding="around-small" size="12">
+                  <div class="page-section">
+                    <h2>First Column-ROW 2</h2>
+                    <p>
+                      Component comes here
+                    </p>
+                    <c-lwc-related-items record-id={recordId} str-title="Account" object-name="Account" parent-field-a-p-i-name="AccountId" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+                  </div>
+                </lightning-layout-item>
+              </lightning-layout>
+
+            </div>
+          </lightning-layout-item>
+
+          <lightning-layout-item padding="around-small" size="6">
+            <div class="page-section page-main">
+              <h2>Second Column</h2>
+              <p>
+                Component comes here
+              </p>
+              <c-lwc-related-items record-id={recordId} str-title="Tasks" object-name="Task" parent-field-a-p-i-name="WhatId" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+            </div>
+          </lightning-layout-item>
+
+        </lightning-layout>
+      </lightning-layout-item>
+
+      <lightning-layout-item flexibility="auto" padding="around-small" size="12">
+        <div class="page-footer page-section">
+          <h2>Footer</h2>
+        </div>
+      </lightning-layout-item>
+
+    </lightning-layout>
+  </div>
+</template>
