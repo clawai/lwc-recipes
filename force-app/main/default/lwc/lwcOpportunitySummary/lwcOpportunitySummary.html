@@ -32,7 +32,19 @@
                     <p>
                       Component comes here
                     </p>
-                    <c-lwc-related-items record-id={recordId} str-title="Account" object-name="Account" parent-field-a-p-i-name="AccountId" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+                    <c-lwc-related-items record-id={recordId} str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+                  </div>
+                </lightning-layout-item>
+              </lightning-layout>
+
+              <lightning-layout>
+                <lightning-layout-item padding="around-small" size="12">
+                  <div class="page-section">
+                    <h2>First Column-ROW 3</h2>
+                    <p>
+                      Component comes here
+                    </p>
+                    <c-lwc-related-items-dynamic-fields record-id={recordId} str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items-dynamic-fields>
                   </div>
                 </lightning-layout-item>
               </lightning-layout>

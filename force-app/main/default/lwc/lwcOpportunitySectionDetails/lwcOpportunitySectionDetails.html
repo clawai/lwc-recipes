@@ -1,18 +1,10 @@
 <template>
+  {opportunityRecordUiStr}
   <lightning-card title={strTitle} icon-name="standard:record"></lightning-card>
 
   <br/>
-  <lightning-button label="Show modal" onclick={handleShowModal}></lightning-button>
-  <c-lwc-generic-modal-edit header={header}>{content}
 
-    <c-lwc-generic-edit-item object-name="Opportunity" record-id={recordId} fields={fields} str-title="Edit Opportunity"></c-lwc-generic-edit-item>
-
-    <div slot="footer">
-      <lightning-button label="Cancel" variant="neutral" onclick={handleCancelModal}></lightning-button>
-      <lightning-button label="Close" variant="brand" onclick={handleCloseModal}></lightning-button>
-    </div>
-  </c-lwc-generic-modal-edit>
-
+  <!-- <lightning-button label="Show modal" onclick={handleShowModal}></lightning-button> <c-lwc-generic-modal-edit header={header}>{content} <c-lwc-generic-edit-item object-name="Opportunity" record-id={recordId} fields={fields} str-title="Edit Opportunity"></c-lwc-generic-edit-item> <div slot="footer"> <lightning-button label="Cancel" variant="neutral" onclick={handleCancelModal}></lightning-button> <lightning-button label="Close" variant="brand" onclick={handleCloseModal}></lightning-button> </div> </c-lwc-generic-modal-edit> -->
   <c-lwc-nav-to-record record-id={recordId}></c-lwc-nav-to-record>
 
   <lightning-record-view-form record-id={recordId} object-api-name="Opportunity">

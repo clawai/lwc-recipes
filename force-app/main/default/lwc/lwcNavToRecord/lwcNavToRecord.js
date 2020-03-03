@@ -6,18 +6,19 @@ import {
 import {
     NavigationMixin
 } from 'lightning/navigation';
-//import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
 
 export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
-    //    @wire(getSingleContact) contact;
-    @api recordId;
 
-    navigateToContact() {
+    @api recordId;
+    @api objectApiName;
+    @api parentObjId;
+
+    navigateToRecord() {
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
                 recordId: this.recordId,
-                objectApiName: 'Opportunity',
+                objectApiName: this.objectApiName,
                 actionName: 'view'
             }
         });
@@ -28,8 +29,22 @@ export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
             type: 'standard__recordPage',
             attributes: {
                 recordId: this.recordId,
-                objectApiName: 'Opportunity',
+                objectApiName: this.objectApiName,
                 actionName: 'edit'
+            }
+        });
+    }
+
+    navigateToNew() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                objectApiName: this.objectApiName,
+                actionName: 'new'
+            },
+            state: {
+                nooverride: '1',
+                defaultFieldValues: "Opportunity__c=" + this.parentObjId
             }
         });
     }
