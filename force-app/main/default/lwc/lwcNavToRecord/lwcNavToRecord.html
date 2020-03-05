@@ -1,14 +1,11 @@
 <template>
-  {parentObjId}
+  Record Id = {parentObjId}
   <template if:true={recordId}>
     <div class="slds-m-top_small slds-m-right_x-small slds-m-bottom_x-small">
       <lightning-button-group>
         <lightning-button label="View" onclick={navigateToRecord}></lightning-button>
         <lightning-button label="Edit" onclick={navigateToEdit}></lightning-button>
-        <lightning-button-menu alternative-text="Show menu">
-          <lightning-menu-item label="View record" value="view"></lightning-menu-item>
-          <lightning-menu-item label="Edit record" value="edit"></lightning-menu-item>
-        </lightning-button-menu>
+        <!-- <lightning-button-menu alternative-text="Show menu"> <lightning-menu-item label="View record" value="view"></lightning-menu-item> <lightning-menu-item label="Edit record" value="edit"></lightning-menu-item> </lightning-button-menu> -->
       </lightning-button-group>
     </div>
   </template>
@@ -16,9 +13,7 @@
     <div class="slds-m-top_small slds-m-right_x-small slds-m-bottom_x-small">
       <lightning-button-group>
         <lightning-button label="New" onclick={navigateToNew}></lightning-button>
-        <lightning-button-menu alternative-text="Show menu">
-          <lightning-menu-item label="New record" value="new"></lightning-menu-item>
-        </lightning-button-menu>
+        <!-- <lightning-button-menu alternative-text="Show menu"> <lightning-menu-item label="New record" value="new"></lightning-menu-item> </lightning-button-menu> -->
       </lightning-button-group>
     </div>
   </template>

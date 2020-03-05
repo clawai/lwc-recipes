@@ -15,6 +15,7 @@ export default class LwcRelatedItemsDynamicFields extends LightningElement {
     fields = [NAME_FIELD, PICKLIST_FIELD, TEXT1_FIELD, CHECKBOX_FIELD];
 
     @api parentObjId;
+    @api parentObjApiName;
     @api objectName;
     @api fieldName;
     @api fieldValue;

@@ -12,6 +12,7 @@ export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
     @api recordId;
     @api objectApiName;
     @api parentObjId;
+    @api parentObjApiName;
 
     navigateToRecord() {
         this[NavigationMixin.Navigate]({
@@ -44,7 +45,7 @@ export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
             },
             state: {
                 nooverride: '1',
-                defaultFieldValues: "Opportunity__c=" + this.parentObjId
+                defaultFieldValues: this.parentObjApiName + "=" + this.parentObjId
             }
         });
     }

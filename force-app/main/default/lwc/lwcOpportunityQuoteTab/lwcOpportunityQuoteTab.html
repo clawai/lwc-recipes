@@ -1,0 +1,13 @@
+<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
+<template>
+  <div class="c-container">
+    lwcOpportunityQuoteTab: {recordId}
+    <lightning-layout-item padding="around-small" size="12">
+      <div class="page-section page-main">
+        <!-- <h2>Main Column</h2>-->
+        <c-lwc-related-items-with-childs record-id={recordId} grand-parent-obj-api-name="Opportunity__c" parent-obj-api-name="RelatedCustomObject__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items-with-childs>
+      </div>
+    </lightning-layout-item>
+
+  </div>
+</template>
