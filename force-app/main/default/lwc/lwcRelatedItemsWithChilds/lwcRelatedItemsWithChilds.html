@@ -1,0 +1,50 @@
+<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
+<template>
+  <div class="c-container">
+    <lightning-card title={strTitle} icon-name="standard:record">
+      <div class="slds-m-around_medium slds-m-top_small slds-m-bottom_x-small">
+        <p>lwcRelatedItemsWithChilds: {recordId}</p>
+        <p>
+          grandParentObjApiName: {grandParentObjApiName}</p>
+        <p>objectName : {objectName}</p>
+        <c-lwc-nav-to-record record-id="" parent-obj-api-name={grandParentObjApiName} parent-obj-id={recordId} object-api-name={objectName}></c-lwc-nav-to-record>
+      </div>
+
+      <div class="slds-m-around_medium">
+        <div if:true={records.data}>
+          <template for:each={records.data} for:item="rec">
+            <div key={rec.Id} class="sldx-list_horizontal">
+
+              <div class="c-container">
+                <lightning-layout-item padding="around-small" size="12">
+                  <lightning-layout>
+
+                    <lightning-layout-item padding="around-small" size="6">
+                      <div class="page-section page-main">
+                        <lightning-card title={strTitle} icon-name="standard:record">
+                          <div class="slds-m-around_medium">
+                            <c-lwc-nav-to-record record-id={rec.Id} object-api-name={objectName}></c-lwc-nav-to-record>
+                            <lightning-record-form record-id={rec.Id} object-api-name={objectName} layout-type="Compact" mode="view" columns="2"></lightning-record-form>
+                          </div>
+                        </lightning-card>
+                      </div>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item padding="around-small" size="6">
+                      <div class="page-section page-main">
+                        <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Related Custom Child Object" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+                      </div>
+                    </lightning-layout-item>
+
+                  </lightning-layout>
+                </lightning-layout-item>
+              </div>
+
+            </div>
+          </template>
+        </div>
+      </div>
+
+    </lightning-card>
+  </div>
+</template>
