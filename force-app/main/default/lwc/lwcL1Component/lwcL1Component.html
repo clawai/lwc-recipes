@@ -1,4 +1,4 @@
-<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
+<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History: -->
 <template>
   <div class="c-container">
     <lightning-layout multiple-rows="true" pull-to-boundary="small" horizontal-align="start" vertical-align="start">
@@ -7,6 +7,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
+              <!-- <c-lwc-l2-component str-title="Column 1 - Row 1"></c-lwc-l2-component>-->
               <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
             </div>
           </lightning-layout-item>
@@ -15,6 +16,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
+              <!-- <c-lwc-l2-component str-title="Column 1 - Row 2"></c-lwc-l2-component>-->
               <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items>
             </div>
           </lightning-layout-item>
@@ -23,7 +25,7 @@
         <lightning-layout >
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
-              <!-- <c-lwc-related-items-dynamic-fields record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items-dynamic-fields>-->
+              <c-lwc-l2-component str-title="Column 1 - Row 3"></c-lwc-l2-component>
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -34,7 +36,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
-              <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
+              <c-lwc-l2-component str-title="Column 2 - Row 1"></c-lwc-l2-component>
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -43,7 +45,7 @@
           <lightning-layout>
             <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
               <div class="slds-box">
-                <!-- <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Tasks" object-name="Task" parent-field-a-p-i-name="WhatId" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>-->
+                <c-lwc-l2-component str-title="Column 2 - Row 2"></c-lwc-l2-component>
               </div>
             </lightning-layout-item>
           </lightning-layout>

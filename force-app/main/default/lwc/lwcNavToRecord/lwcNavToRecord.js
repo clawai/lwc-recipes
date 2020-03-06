@@ -37,6 +37,8 @@ export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
     }
 
     navigateToNew() {
+        console.log('this.parentObjApiName: ' + this.parentObjApiName);
+        console.log('this.parentObjId: ' + this.parentObjId);
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
@@ -45,8 +47,9 @@ export default class LwcNavToRecord extends NavigationMixin(LightningElement) {
             },
             state: {
                 nooverride: '1',
-                defaultFieldValues: this.parentObjApiName + "=" + this.parentObjId
+                defaultFieldValues: this.parentObjApiName + '=' + this.parentObjId
             }
         });
     }
+
 }

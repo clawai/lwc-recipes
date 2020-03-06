@@ -18,9 +18,7 @@ public with sharing class LWCRelatedItemsController {
                 
             String strSOQL = 'SELECT Id FROM ' + objectName + ' WHERE ' + parentFieldAPIName + ' = \'' + recordId + '\'';  
             strSOQL += ' LIMIT 10';
-            system.debug('strSOQL: ' + strSOQL);
             list <sObject> recordList = Database.query( strSOQL );
-            system.debug('recordList: ' + recordList);
             return recordList;
         }
        else 

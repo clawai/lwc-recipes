@@ -9,26 +9,16 @@ export default class LwcRelatedItems extends LightningElement {
     @api parentObjId;
     @api parentObjApiName;
     @api objectName;
-    @api fieldName;
-    @api fieldValue;
     @api parentFieldAPIName;
     @api recordId;
     @api strTitle;
-    @api filterType;
-    @api operator;
     get vals() {
-        return this.recordId + ',' + this.objectName + ',' +
-            this.parentFieldAPIName + ',' + this.fieldName + ',' +
-            this.fieldValue + ',' + this.filterType + ',' + this.operator;
+        return this.recordId + ',' + this.objectName + ',' + this.parentFieldAPIName;
     }
     set vals(value) {
         this.strTitle = value.strtitle;
         this.objectName = value.objectname;
         this.parentFieldAPIName = value.parentfieldapiname;
-        this.fieldName = value.fieldname;
-        this.fieldValue = value.fieldvalue;
-        this.filterType = value.filtertype;
-        this.operator = value.operator;
     }
 
     @wire(fetchRecords, {

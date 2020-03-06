@@ -1,22 +1,19 @@
 <template>
-  Record Id = {parentObjId}
-  <template if:true={recordId}>
-    <div class="slds-m-top_small slds-m-right_x-small slds-m-bottom_x-small">
-      <lightning-button-group>
-        <lightning-button label="View" onclick={navigateToRecord}></lightning-button>
-        <lightning-button label="Edit" onclick={navigateToEdit}></lightning-button>
-        <!-- <lightning-button-menu alternative-text="Show menu"> <lightning-menu-item label="View record" value="view"></lightning-menu-item> <lightning-menu-item label="Edit record" value="edit"></lightning-menu-item> </lightning-button-menu> -->
-      </lightning-button-group>
+  <div class="slds-clearfix">
+    <div class="slds-float_right">
+      <template if:false={recordId}>
+        <lightning-button-group>
+          <lightning-button label="New" onclick={navigateToNew}></lightning-button>
+        </lightning-button-group>
+      </template>
     </div>
-  </template>
-  <template if:false={recordId}>
-    <div class="slds-m-top_small slds-m-right_x-small slds-m-bottom_x-small">
-      <lightning-button-group>
-        <lightning-button label="New" onclick={navigateToNew}></lightning-button>
-        <!-- <lightning-button-menu alternative-text="Show menu"> <lightning-menu-item label="New record" value="new"></lightning-menu-item> </lightning-button-menu> -->
-      </lightning-button-group>
+    <div class="slds-m-top_small slds-float_right">
+      <template if:true={recordId}>
+        <lightning-button-group>
+          <lightning-button label="View" onclick={navigateToRecord}></lightning-button>
+          <lightning-button label="Edit" onclick={navigateToEdit}></lightning-button>
+        </lightning-button-group>
+      </template>
     </div>
-  </template>
-
-  <!-- <template if:true={contact.error}> <c-error-panel errors={contact.error}></c-error-panel> </template> <c-view-source source="lwc/navToRecord" slot="footer"> Navigate to a record page. In this example, a contact. </c-view-source> -->
+  </div>
 </template>
