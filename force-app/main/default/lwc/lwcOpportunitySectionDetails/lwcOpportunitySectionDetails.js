@@ -19,7 +19,12 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
     @api strTitle;
     @api recData;
     @api opportunityRecordUiStr;
-    fields = [NAME_FIELD, CLOSEDATE_FIELD];
+    @api objectName;
+    @api sectionName;
+    @api pageLayoutName;
+
+    //    fields = [NAME_FIELD, CLOSEDATE_FIELD];
+    fields = ["OwnerId", "CloseDate", "IsPrivate", "NextStep", "Name", "StageName", "Type", "CampaignId", "LeadSource"];
 
     @wire(getRecordUi, {
         recordIds: '$recordId',
@@ -30,10 +35,11 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
 
 
     get opportunityRecordUiStr() {
+        console.log('this.sectionName: ' + this.sectionName);
         let key = 'sections';
         let fieldsObj;
         let sectionsObj = getValues(this.opportunityRecordUi.data, key);
-        let sectionObj = getSection(sectionsObj[0], 'Opportunity Information');
+        let sectionObj = getSection(sectionsObj[0], this.sectionName);
         for (let a in sectionObj) {
             fieldsObj = getFields(sectionObj[a]);
 
@@ -44,6 +50,20 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
         }
         //        let fieldsObj = getFields(sectionObj[0]);
         let sectionStr = JSON.stringify(fieldsObj);
+        const regex = /"/g;
+        //        var a = sectionStr.replace(/"/g, "");
+        sectionStr = sectionStr.replace(regex, '');
+        //        a = a.replace(/\]/g, "");
+        //        a = a.replace(/\[/g, "");
+
+        /*       var found, rxp = /[^[\]]+(?=])/g,
+        
+            str = sectionStr,
+            curMatch;
+
+        if (curMatch = rxp.exec(str)) sectionStr = curMatch(1);
+*/
+        //        let sectionObjFinal = sectionStr.split(",");
         //console.log('sectionStr: ' + sectionStr);
         return 'sectionStr';
         /*
@@ -130,6 +150,7 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
                     }
                 }
             }
+            setObj.delete(null);
             fieldsObj = Array.from(setObj);
             return fieldsObj;
         }
