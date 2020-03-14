@@ -4,14 +4,16 @@ import {
     wire
 } from 'lwc';
 import fetchRecords from '@salesforce/apex/LWCRelatedItemsController.fetchRecords';
+import fetchFields from '@salesforce/apex/LWCRelatedItemsController.fetchFields';
 
-export default class LwcRelatedItems extends LightningElement {
+export default class LwcRelatedItemByTypeWithPageLayout extends LightningElement {
     @api parentObjId;
     @api parentObjApiName;
     @api objectName;
     @api parentFieldAPIName;
     @api recordId;
     @api strTitle;
+    @api pageLayout;
     @api filterFieldName;
     @api filterFieldValue;
     @api filterOperatorType;
@@ -31,5 +33,10 @@ export default class LwcRelatedItems extends LightningElement {
         listValues: '$vals'
     })
     records;
+
+    @wire(fetchFields, {
+        listValues: '$pageLayout'
+    })
+    fieldsSet;
 
 }

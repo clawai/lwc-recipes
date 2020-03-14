@@ -26,7 +26,9 @@
 
               <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
                 <div class="slds-box">
-                  <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Related Custom Child Object" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>
+                  <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Vehicles" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="="></c-lwc-related-items>
+                  <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Accessories" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="="></c-lwc-related-items>
+                  <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Finance" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="="></c-lwc-related-items>
                 </div>
               </lightning-layout-item>
 

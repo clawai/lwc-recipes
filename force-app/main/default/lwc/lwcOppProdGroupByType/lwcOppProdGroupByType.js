@@ -5,7 +5,7 @@ import {
 } from 'lwc';
 import fetchRecords from '@salesforce/apex/LWCRelatedItemsController.fetchRecords';
 
-export default class LwcRelatedItems extends LightningElement {
+export default class LwcOppProdGroupByType extends LightningElement {
     @api parentObjId;
     @api parentObjApiName;
     @api objectName;
@@ -16,15 +16,15 @@ export default class LwcRelatedItems extends LightningElement {
     @api filterFieldValue;
     @api filterOperatorType;
     get vals() {
-        return this.recordId + ',' + this.objectName + ',' + this.parentFieldAPIName + ',' + this.filterFieldName + ',' + this.filterFieldValue + ',' + this.filterOperatorType;
+        return this.recordId + ',' + this.objectName + ',' + this.parentFieldAPIName + this.filterFieldName + ',' + this.filterFieldValue + ',' + this.filterOperatorType;
     }
     set vals(value) {
         this.strTitle = value.strtitle;
         this.objectName = value.objectname;
         this.parentFieldAPIName = value.parentfieldapiname;
-        this.filterFieldName = value.filterfieldname;
-        this.filterFieldValue = value.filterfieldvalue;
-        this.filterOperatorType = value.filteroperatortype;
+        this.filterFieldName = value.filterFieldName;
+        this.filterFieldValue = value.filterFieldValue;
+        this.filterOperatorType = value.filterOperatorType;
     }
 
     @wire(fetchRecords, {

@@ -7,7 +7,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
-              <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
+              <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details" object-name="Opportunity" section-name="Opportunity Information" page-layout-name="Standard"></c-lwc-opportunity-section-details>
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -15,7 +15,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
-              <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items>
+              <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Single Related Items" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items>
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -23,6 +23,8 @@
         <lightning-layout >
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
+              <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Account" object-name="Account" parent-field-a-p-i-name="Opportunity" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-related-items>
+
               <!-- <c-lwc-related-items-dynamic-fields record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items-dynamic-fields>-->
             </div>
           </lightning-layout-item>
@@ -34,7 +36,7 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
-              <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
+              <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Vehicles" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="="></c-lwc-related-items>
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -43,11 +45,26 @@
           <lightning-layout>
             <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
               <div class="slds-box">
+                <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Accessories" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="="></c-lwc-related-items>
                 <!-- <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Tasks" object-name="Task" parent-field-a-p-i-name="WhatId" field-name="" field-value="" filter-type="" operator=""></c-lwc-related-items>-->
               </div>
             </lightning-layout-item>
           </lightning-layout>
         </lightning-layout-item>
+
+        <lightning-layout-item>
+          <lightning-layout>
+            <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+              <div class="slds-box">
+                <c-lwc-related-item-by-type-with-page-layout record-id={recordId} parent-obj-api-name="Opportunity" str-title="Vehicles With PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="=" page-layout="TEST" ></c-lwc-related-item-by-type-with-page-layout>
+
+                <!--<c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity" str-title="Finance" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="="></c-lwc-related-items>-->
+                
+              </div>
+            </lightning-layout-item>
+          </lightning-layout>
+        </lightning-layout-item>
+
       </lightning-layout-item>
 
     </lightning-layout>
