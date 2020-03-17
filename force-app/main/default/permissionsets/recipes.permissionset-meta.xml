@@ -119,6 +119,21 @@
         <field>Contact.Title</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RelatedCustomObject__c.Check_Box__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RelatedCustomObject__c.PickList__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RelatedCustomObject__c.Text_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>recipes</label>
     <objectPermissions>
