@@ -1,6 +1,7 @@
 public with sharing class ContactController {
     @AuraEnabled(cacheable=true)
     public static List<Contact> getContactList() {
+        system.debug('getContactList');
         return [
             SELECT Id, Name, Title, Phone, Email, Picture__c
             FROM Contact
@@ -11,6 +12,7 @@ public with sharing class ContactController {
 
     @AuraEnabled(cacheable=true)
     public static List<Contact> findContacts(String searchKey) {
+        system.debug('findContacts:' + searchKey);
         String key = '%' + searchKey + '%';
         return [
             SELECT Id, Name, Title, Phone, Email, Picture__c

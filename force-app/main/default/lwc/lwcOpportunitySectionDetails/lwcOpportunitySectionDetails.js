@@ -33,7 +33,6 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
     })
     opportunityRecordUi;
 
-
     get opportunityRecordUiStr() {
         console.log('this.sectionName: ' + this.sectionName);
         let key = 'sections';
@@ -50,9 +49,9 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
         }
         //        let fieldsObj = getFields(sectionObj[0]);
         let sectionStr = JSON.stringify(fieldsObj);
-        const regex = /"/g;
+
         //        var a = sectionStr.replace(/"/g, "");
-        sectionStr = sectionStr.replace(regex, '');
+        //        sectionStr = sectionStr.replace('a', 'A');
         //        a = a.replace(/\]/g, "");
         //        a = a.replace(/\[/g, "");
 
@@ -65,7 +64,7 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
 */
         //        let sectionObjFinal = sectionStr.split(",");
         //console.log('sectionStr: ' + sectionStr);
-        return 'sectionStr';
+        return sectionStr;
         /*
         return this.opportunityRecordUi ?
             JSON.stringify(this.opportunityRecordUi.data, null, 2) :
@@ -159,6 +158,5 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
 
 
     }
-
 
 }

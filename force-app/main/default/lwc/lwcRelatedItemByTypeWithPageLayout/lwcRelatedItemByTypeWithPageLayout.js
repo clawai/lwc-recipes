@@ -1,18 +1,19 @@
 import {
     LightningElement,
     api,
-    wire,
-    track
+    wire
 } from 'lwc';
-import getRcd from '@salesforce/apex/testController.getRcd';
+import fetchRecords from '@salesforce/apex/lwcUIController.fetchRecords';
+import fetchFields from '@salesforce/apex/lwcUIController.fetchFields';
 
-export default class LwcRelatedItems extends LightningElement {
+export default class LwcRelatedItemByTypeWithPageLayout extends LightningElement {
     @api parentObjId;
     @api parentObjApiName;
     @api objectName;
     @api parentFieldAPIName;
     @api recordId;
     @api strTitle;
+    @api pageLayout;
     @api filterFieldName;
     @api filterFieldValue;
     @api filterOperatorType;
@@ -28,12 +29,14 @@ export default class LwcRelatedItems extends LightningElement {
         this.filterOperatorType = value.filteroperatortype;
     }
 
-    @wire(getRcd, {
+    @wire(fetchRecords, {
         listValues: '$vals'
     })
     records;
 
-    /*    @wire(getRcd)
-        records;
-    */
+    @wire(fetchFields, {
+        listValues: '$pageLayout'
+    })
+    fieldsSet;
+
 }

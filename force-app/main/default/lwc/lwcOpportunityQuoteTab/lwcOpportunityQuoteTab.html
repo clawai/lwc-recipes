@@ -5,9 +5,9 @@
     <lightning-layout multiple-rows="true" pull-to-boundary="small" horizontal-align="start" vertical-align="start">
 
       <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-        <div class="slds-box">
-          <c-lwc-related-items-with-childs record-id={recordId} grand-parent-obj-api-name="Opportunity__c" parent-obj-api-name="RelatedCustomObject__c" str-title="Quotes" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items-with-childs>
-        </div>
+
+        <!--<c-lwc-related-items-with-childs record-id={recordId} grand-parent-obj-api-name="Opportunity__c" parent-obj-api-name="RelatedCustomObject__c" str-title="Quotes" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items-with-childs>-->
+        <c-lwc-quote-with-lineitems record-id={recordId} grand-parent-obj-api-name="Opportunity__c" parent-obj-api-name="RelatedCustomObject__c" str-title="Quotes" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-quote-with-lineitems>
       </lightning-layout-item>
     </lightning-layout>
   </div>
