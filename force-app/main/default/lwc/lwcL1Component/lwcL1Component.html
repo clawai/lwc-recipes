@@ -8,7 +8,7 @@
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
               <!-- <c-lwc-l2-component str-title="Column 1 - Row 1"></c-lwc-l2-component>-->
-              <c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>
+              <!--<c-lwc-opportunity-section-details record-id={recordId} str-title="Contact Details"></c-lwc-opportunity-section-details>-->
             </div>
           </lightning-layout-item>
         </lightning-layout>
@@ -16,8 +16,12 @@
         <lightning-layout>
           <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
             <div class="slds-box">
+              HHHHHHHH
+              <c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>
               <!-- <c-lwc-l2-component str-title="Column 1 - Row 2"></c-lwc-l2-component>-->
               <c-lwc-related-items record-id={recordId} parent-obj-api-name="Opportunity__c" str-title="Related Custom Objects" object-name="RelatedCustomObject__c" parent-field-a-p-i-name="Opportunity__c"></c-lwc-related-items>
+              <c-apex-wire-method-to-property>2222222</c-apex-wire-method-to-property>
+
             </div>
           </lightning-layout-item>
         </lightning-layout>

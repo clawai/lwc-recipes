@@ -8,5 +8,9 @@
     <target>lightningCommunity__Default</target>
     <target>lightning__Tab</target>
   </targets>
-  <!--<targetConfigs> <targetConfig targets="lightningCommunity__Default"> <property name="recordId" type="String" label="Record Id" description="Automatically bind the page's record id to the component variable" default="{!recordId}"/> </targetConfig> </targetConfigs>-->
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="recordId" type="String" label="Record Id" description="Automatically bind the page's record id to the component variable" default="{!recordId}"/>
+    </targetConfig>
+  </targetConfigs>
 </LightningComponentBundle>

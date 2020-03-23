@@ -3,7 +3,7 @@ import {
     api,
     wire
 } from 'lwc';
-import fetchRecords from '@salesforce/apex/LWCRelatedItemsController.fetchRecords';
+import fetchRecords from '@salesforce/apex/lwcUIController.fetchRecords';
 
 /*import NAME_FIELD from '@salesforce/schema/RelatedCustomObject__c.Name';
 import PICKLIST_FIELD from '@salesforce/schema/RelatedCustomObject__c.PickList__c';

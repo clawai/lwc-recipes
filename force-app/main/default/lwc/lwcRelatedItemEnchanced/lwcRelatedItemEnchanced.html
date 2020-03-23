@@ -1,0 +1,20 @@
+<template>
+  <lightning-card title={strTitle} icon-name="standard:record">
+    <div class="slds-m-around_small">
+      <!-- <c-lwc-nav-to-record record-id="" parent-obj-api-name={parentObjApiName} parent-obj-id={recordId} object-api-name={objectName}></c-lwc-nav-to-record>-->
+    </div>
+    {pageLayout}
+    <div class="slds-m-around_small">
+      <div if:true={records.data}>
+        <template for:each={records.data} for:item="rec">
+
+          <div key={rec.Id} class="sldx-list_horizontal">
+            <!--<c-lwc-nav-to-record record-id={rec.Id} object-api-name={objectName}></c-lwc-nav-to-record>-->
+            <lightning-record-form record-id={rec.Id} object-api-name={objectName} layout-type="Compact" mode="view" columns="2"></lightning-record-form>
+            <!--<lightning-record-form record-id={rec.Id} object-api-name={objectName} mode="view" fields={fieldsSet.data} columns="2"></lightning-record-form>-->
+          </div>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>

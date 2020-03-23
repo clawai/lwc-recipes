@@ -56,7 +56,7 @@ export default class LwcOpportunitySectionDetails extends LightningElement {
         //        a = a.replace(/\[/g, "");
 
         /*       var found, rxp = /[^[\]]+(?=])/g,
-        
+
             str = sectionStr,
             curMatch;
 

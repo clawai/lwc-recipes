@@ -3,8 +3,8 @@ import {
     api,
     wire
 } from 'lwc';
-import fetchRecords from '@salesforce/apex/LWCRelatedItemsController.fetchRecords';
-import fetchFields from '@salesforce/apex/LWCRelatedItemsController.fetchFields';
+import fetchRecords from '@salesforce/apex/lwcUIController.fetchRecords';
+import fetchFields from '@salesforce/apex/lwcUIController.fetchFields';
 
 export default class LwcRelatedItemByTypeWithPageLayout extends LightningElement {
     @api parentObjId;

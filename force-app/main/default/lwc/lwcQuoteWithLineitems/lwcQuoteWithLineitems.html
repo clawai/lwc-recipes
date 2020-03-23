@@ -1,0 +1,43 @@
+<!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
+<template>
+  <!--<lightning-card title={strTitle} icon-name="standard:record">-->
+  <div class="slds-m-around_small">
+    <!--<c-lwc-nav-to-record record-id="" parent-obj-api-name={grandParentObjApiName} parent-obj-id={recordId} object-api-name={objectName}></c-lwc-nav-to-record>-->
+  </div>
+
+  <div class="slds-m-around_small">
+    <div if:true={records.data}>
+      <template for:each={records.data} for:item="rec">
+        <div key={rec.Id} class="sldx-list_horizontal">
+
+          <div class="c-container">
+            <lightning-layout multiple-rows="true" pull-to-boundary="small" horizontal-align="start" vertical-align="start">
+
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <lightning-card title={strTitle} icon-name="standard:record">
+
+                  <div class="slds-m-around_small">
+                    <c-lwc-nav-to-record record-id={rec.Id} object-api-name={objectName}></c-lwc-nav-to-record>
+                    <lightning-record-form record-id={rec.Id} object-api-name={objectName} layout-type="Compact" mode="view" columns="2"></lightning-record-form>
+                  </div>
+                </lightning-card>
+              </lightning-layout-item>
+
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <!--<c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Vehicles" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="="></c-lwc-related-items> <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Accessories" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="="></c-lwc-related-items> <c-lwc-related-items record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Finance" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="="></c-lwc-related-items>-->
+                <c-lwc-related-item-enchanced record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Vehicles with PageLayout" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="=" page-layout="Vehicles Page Layout"></c-lwc-related-item-enchanced>
+                <c-lwc-related-item-enchanced record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Accessories with PageLayout" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="=" page-layout="Accessories Page Layout"></c-lwc-related-item-enchanced>
+
+                <c-lwc-related-item-enchanced record-id={rec.Id} parent-obj-api-name={parentObjApiName} str-title="Finance with PageLayout" object-name="RelatedCustomChildObject__c" parent-field-a-p-i-name="RelatedCustomObject__c" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="=" page-layout="Finance Page Layout"></c-lwc-related-item-enchanced>
+              </lightning-layout-item>
+
+            </lightning-layout>
+          </div>
+
+        </div>
+      </template>
+    </div>
+  </div>
+  <!--</lightning-card>-->
+
+</template>

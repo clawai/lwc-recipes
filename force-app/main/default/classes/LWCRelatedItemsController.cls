@@ -1,11 +1,12 @@
 public with sharing class LWCRelatedItemsController {
 
-    @AuraEnabled( cacheable=true )  
-    public static List <sObject> fetchRecords( String listValues )  
+    @AuraEnabled( cacheable=false )
+    public static List <sObject> fetchRecords( )
     {
-        system.debug( 'values are ' + listValues );  
-        List < String > strList = listValues.split( ',' );  
-        system.debug( 'values are ' + strList );  
+        system.debug('HEEEEEEE');
+/*        system.debug( 'values are ' + listValues );
+        List < String > strList = listValues.split( ',' );
+        system.debug( 'values are ' + strList );
         Boolean hasFilter = True;
         for (Integer index = 0; index < strList.size(); index++){
             if (strList[index] == 'undefined' && index <= 2)
@@ -19,11 +20,11 @@ public with sharing class LWCRelatedItemsController {
 /*        if (listValues.contains('undefined'))
             return null;
 */
-        String recordId = strList.get( 0 );  
-        String objectName = strList.get( 1 );  
-        String parentFieldAPIName = strList.get( 2 );  
-        String strSOQL = 'SELECT Id FROM ' + objectName + ' WHERE ' + parentFieldAPIName + ' = \'' + recordId + '\'';  
-        
+        String recordId = strList.get( 0 );
+        String objectName = strList.get( 1 );
+        String parentFieldAPIName = strList.get( 2 );
+        String strSOQL = 'SELECT Id FROM ' + objectName + ' WHERE ' + parentFieldAPIName + ' = \'' + recordId + '\'';
+
         if (hasFilter){
             String filterFieldName = strList.get(3);
             String filterFieldValue = strList.get(4);
@@ -35,10 +36,10 @@ public with sharing class LWCRelatedItemsController {
         return recordList;
     }
 
-    @AuraEnabled( cacheable=true )  
-    public static List <String> fetchFields( String pageLayout )  
+    @AuraEnabled( cacheable=true )
+    public static List <String> fetchFields( String pageLayout )
     {
-        system.debug( 'Page Layout name is ' + pageLayout );  
+        system.debug( 'Page Layout name is ' + pageLayout );
         List <String> fieldList = new List<String>();
         fieldList.add('Name');
         fieldList.add('ProductType__c');

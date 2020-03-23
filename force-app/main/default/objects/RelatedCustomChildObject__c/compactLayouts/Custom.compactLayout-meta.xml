@@ -3,6 +3,7 @@
     <fullName>Custom</fullName>
     <fields>Name</fields>
     <fields>RelatedCustomObject__c</fields>
+    <fields>ProductType__c</fields>
     <fields>DateField__c</fields>
     <label>Custom</label>
 </CompactLayout>
