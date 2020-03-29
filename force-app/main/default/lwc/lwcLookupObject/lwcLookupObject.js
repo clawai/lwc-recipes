@@ -16,6 +16,7 @@ export default class LwcLookupObject extends LightningElement {
     //   @api filterFieldName;
     //   @api filterFieldValue;
     //   @api filterOperatorType;
+    fields = ['Name', 'Phone', 'Type', 'Id', 'AccountNumber'];
     get vals() {
         console.log("HHHHHHH");
         //        return this.recordId + ',' + this.objectName + ',' + this.parentFieldAPIName + ',' + this.filterFieldName + ',' + this.filterFieldValue + ',' + this.filterOperatorType;
@@ -35,4 +36,12 @@ export default class LwcLookupObject extends LightningElement {
         listValues: '$vals'
     })
     recordlist;
+
+    handleSubmit(event) {
+        event.preventDefault(); // stop the form from submitting
+        const fields = event.detail.fields;
+        fields.Name = 'My Custom Last Name'; // modify a field
+        console.log('fields.Name: ' + fields.Name);
+        this.template.querySelector('lightning-record-form').submit(fields);
+    }
 }

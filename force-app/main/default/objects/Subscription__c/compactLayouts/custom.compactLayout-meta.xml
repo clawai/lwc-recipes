@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>custom</fullName>
+    <fields>Account__c</fields>
+    <fields>Name</fields>
+    <fields>EmailChannel__c</fields>
+    <fields>MobileChannel__c</fields>
+    <fields>SMSChannel__c</fields>
+    <fields>DirectMailChannel__c</fields>
+    <label>custom</label>
+</CompactLayout>
