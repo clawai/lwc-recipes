@@ -1,12 +1,12 @@
 public with sharing class LWCRelatedItemsController {
 
-    @AuraEnabled( cacheable=false )  
-    public static List <sObject> fetchRecords( )  
+    @AuraEnabled( cacheable=false )
+    public static List <sObject> fetchRecords( )
     {
         system.debug('HEEEEEEE');
-/*        system.debug( 'values are ' + listValues );  
-        List < String > strList = listValues.split( ',' );  
-        system.debug( 'values are ' + strList );  
+/*        system.debug( 'values are ' + listValues );
+        List < String > strList = listValues.split( ',' );
+        system.debug( 'values are ' + strList );
         Boolean hasFilter = True;
         for (Integer index = 0; index < strList.size(); index++){
             if (strList[index] == 'undefined' && index <= 2)
@@ -17,11 +17,14 @@ public with sharing class LWCRelatedItemsController {
             }
         }
 
-        String recordId = strList.get( 0 );  
-        String objectName = strList.get( 1 );  
-        String parentFieldAPIName = strList.get( 2 );  
-        String strSOQL = 'SELECT Id FROM ' + objectName + ' WHERE ' + parentFieldAPIName + ' = \'' + recordId + '\'';  
-        
+/*        if (listValues.contains('undefined'))
+            return null;
+*/
+        String recordId = strList.get( 0 );
+        String objectName = strList.get( 1 );
+        String parentFieldAPIName = strList.get( 2 );
+        String strSOQL = 'SELECT Id FROM ' + objectName + ' WHERE ' + parentFieldAPIName + ' = \'' + recordId + '\'';
+
         if (hasFilter){
             String filterFieldName = strList.get(3);
             String filterFieldValue = strList.get(4);
@@ -31,14 +34,12 @@ public with sharing class LWCRelatedItemsController {
         strSOQL += ' LIMIT 10';
         list <sObject> recordList = Database.query( strSOQL );
         return recordList;
-    */ return null;
-   }
+    }
 
-/*
-//    @AuraEnabled( cacheable=false )  
-    public static List <String> fetchFields( String pageLayout )  
+    @AuraEnabled( cacheable=true )
+    public static List <String> fetchFields( String pageLayout )
     {
-        system.debug( 'Page Layout name is ' + pageLayout );  
+        system.debug( 'Page Layout name is ' + pageLayout );
         List <String> fieldList = new List<String>();
         fieldList.add('Name');
         fieldList.add('ProductType__c');
@@ -47,44 +48,5 @@ public with sharing class LWCRelatedItemsController {
 
         return fieldList;
     }
-*/
-/*
- //   @AuraEnabled( cacheable=false )  
-    public static List <sObject> fetchLookupRecords( String listValues )  
-    {
-        system.debug( 'values are ' + listValues );  
-        List < String > strList = listValues.split( ',' );  
-        system.debug( 'values are ' + strList );  
-        Boolean hasFilter = True;
-        for (Integer index = 0; index < strList.size(); index++){
-            if (strList[index] == 'undefined' && index <= 3)
-                return null;
-            if ((strList[index] == 'undefined' && index > 3) || strList.size() == 4) {
-                hasFilter = false;
-                break;
-            }
-        }
-
-        String recordId = strList.get( 0 );  
-        String objectName = strList.get( 1 );  
-        String lookupObjName = strList.get( 2 );  
-        String lookupFieldName = strList.get( 3 );  
-        String strSOQL = 'SELECT Id, ' + lookupFieldName +  ' FROM ' + objectName + ' WHERE Id = ' + '\'' + recordId + '\'';  
-
-        List <sObject> objRecords = Database.query(strSOQL);
-        system.debug(objRecords);
-        String lookupFieldId = (String)objRecords[0].get(lookupFieldName);
-        
-        strSOQL = 'SELECT Id FROM ' + lookupObjName + ' WHERE Id='  + '\'' + lookupFieldId + '\'';  
-        
-        if (hasFilter){
-
-        system.debug('Has Filter');
-          }
-        strSOQL += ' LIMIT 10';
-        list <sObject> recordList = Database.query( strSOQL );
-        return recordList;
-    }
-*/
 
 }
