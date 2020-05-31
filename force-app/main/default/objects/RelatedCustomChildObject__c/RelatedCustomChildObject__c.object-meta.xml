@@ -141,7 +141,7 @@
     <type>Default</type>
   </actionOverrides>
   <allowInChatterGroups>false</allowInChatterGroups>
-  <<<<<<< HEAD <compactLayoutAssignment>Custom</compactLayoutAssignment> ======= <compactLayoutAssignment>SYSTEM</compactLayoutAssignment> >>>>>>> e15ae2cd86e22a007986406d8f8536c1f86a206a
+  <compactLayoutAssignment>Custom</compactLayoutAssignment>
   <deploymentStatus>Deployed</deploymentStatus>
   <enableActivities>false</enableActivities>
   <enableBulkApi>true</enableBulkApi>

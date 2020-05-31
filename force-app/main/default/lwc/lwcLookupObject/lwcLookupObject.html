@@ -10,7 +10,7 @@
 
           <div key={rec.Id} class="sldx-list_horizontal">
             <!--<c-lwc-nav-to-record record-id={rec.Id} object-api-name={lookupObjName}></c-lwc-nav-to-record>-->
-            <lightning-record-form record-id={rec.Id} object-api-name={lookupObjName} layout-type="Compact" mode="view" columns="2"></lightning-record-form>
+            <lightning-record-form record-id={rec.Id} object-api-name={lookupObjName} fields={fields} columns="2" mode="view" onsubmit={handleSubmit}></lightning-record-form>
           </div>
         </template>
       </div>

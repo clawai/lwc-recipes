@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+  <aura:attribute name="selectedSubMenuItem" default="false" type="String"/>
+  <aura:attribute name="activityTimelineOn" default="false" type="Boolean"/>
+  <aura:attribute name="contactDetailsOn" default="false" type="Boolean"/>
+  <aura:attribute name="preferencesOn" default="false" type="Boolean"/>
+  <aura:attribute name="activeSubscriptionsOn" default="false" type="Boolean"/>
+  <aura:attribute name="productsOn" default="false" type="Boolean"/>
+  <aura:attribute name="allOn" default="false" type="Boolean"/>
+  <div class="c-container">
+    <p>Form Factor: {formFactor}<br/></p>
+<!--
+    <lightning-button-menu alternative-text="Sub Menu" onselect="{! c.handleMenuSelect}" label="Sub Menu">
+      <lightning-menu-item prefix-icon-name="utility:table " value="all " label="All "></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table " value="contactDetails " label="Contact Details "></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table " value="preferences " label="Preferences "></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table " value="activeSubscriptions " label="Active Subscriptions "></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table " value="products " label="Products "></lightning-menu-item>
+    </lightning-button-menu>
+  -->
+  </div>
+</aura:component>

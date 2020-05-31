@@ -1,81 +1,162 @@
 <!-- Root layout component for Opportunity Summary Author: Charles Law Date: 28/02/2020 Modification History -->
 <template>
   <div class="c-container">
-    <lightning-layout multiple-rows="true" pull-to-boundary="small" horizontal-align="start" vertical-align="start">
+    <p>Form Factor: {formFactor}<br></p>
 
-      <!-- First Column -->
-      <lightning-layout-item flexibility="auto">
+    <lightning-button-menu alternative-text="Sub Menu" onselect={handleMenuSelect} label="Sub Menu">
+      <lightning-menu-item prefix-icon-name="utility:table" value="all" label="All"></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table" value="contactDetails" label="Contact Details"></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table" value="preferences" label="Preferences"></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table" value="activeSubscriptions" label="Active Subscriptions"></lightning-menu-item>
+      <lightning-menu-item prefix-icon-name="utility:table" value="products" label="Products"></lightning-menu-item>
+    </lightning-button-menu>
 
-        <!-- Activity Timeline -->
-        <lightning-layout>
-          <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-            <!--<div class="slds-box">-->
-            <c-lwc-activity-timeline record-id={recordId} str-title="lwcActivityTimeline"></c-lwc-activity-timeline>
-            <!--</div>-->
-          </lightning-layout-item>
-        </lightning-layout>
+    <div if:true={allOn}>
+      <lightning-layout multiple-rows="true" pull-to-boundary="small" horizontal-align="start" vertical-align="start">
 
-        <!-- Contact Details -->
-        <lightning-layout >
-          <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-            <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
-            <c-lwc-lookup-object str-title="Contact Details (From Account)" record-id={recordId} object-name="Opportunity" lookup-obj-name="Account" lookup-field-name="AccountId" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-lookup-object>
-            <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
-          </lightning-layout-item>
-        </lightning-layout>
+        <!-- First Column -->
+        <lightning-layout-item flexibility="auto">
 
-        <!-- Preferences -->
-        <lightning-layout>
-          <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-            <c-lwc-opportunity-section-details record-id={recordId} str-title="Preferences" object-name="Opportunity" section-name="Opportunity Information" page-layout-name="Standard"></c-lwc-opportunity-section-details>
-          </lightning-layout-item>
-        </lightning-layout>
-
-        <!-- Active Subscriptions -->
-        <lightning-layout>
-          <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-            <!--<c-lwc-active-subscriptions record-id={recordId} str-title="Active Subscriptions"></c-lwc-active-subscriptions>-->
-            <c-lwc-active-subscriptions str-title="Active Subscriptions" record-id={recordId} object-name="Opportunity" target-obj-api-name="Subscription__c" lookup-field-name="AccountId" parent-field-api-name="Account__c" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-active-subscriptions>
-          </lightning-layout-item>
-        </lightning-layout>
-
-      </lightning-layout-item>
-
-      <!-- Second Column -->
-      <lightning-layout-item flexibility="auto">
-
-        <!-- Opportunity Product-Vehicles -->
-        <lightning-layout-item>
+          <!-- Activity Timeline -->
           <lightning-layout>
             <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-              <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+              <!--<div class="slds-box">-->
+              <c-lwc-activity-timeline record-id={recordId} str-title="lwcActivityTimeline"></c-lwc-activity-timeline>
+              <!--</div>-->
+            </lightning-layout-item>
+          </lightning-layout>
 
-              <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Vehicles with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="=" page-layout="Vehicle Page Layout"></c-lwc-related-item-enchanced>
+          <!-- Contact Details -->
+          <lightning-layout >
+            <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+              <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+              <c-lwc-lookup-object str-title="Contact Details (From Account)" record-id={recordId} object-name="Opportunity" lookup-obj-name="Account" lookup-field-name="AccountId" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-lookup-object>
               <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
             </lightning-layout-item>
           </lightning-layout>
-        </lightning-layout-item>
 
-        <!-- Opportunity Product-Accessories -->
-        <lightning-layout-item>
+          <!-- Preferences -->
           <lightning-layout>
             <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-              <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Accessories with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="=" page-layout="Accessories Page Layout"></c-lwc-related-item-enchanced>
+              <c-lwc-opportunity-section-details record-id={recordId} str-title="Preferences" object-name="Opportunity" section-name="Opportunity Information" page-layout-name="Standard"></c-lwc-opportunity-section-details>
             </lightning-layout-item>
           </lightning-layout>
-        </lightning-layout-item>
 
-        <!-- Opportunity Product-Vehicles With PageLayout -->
-        <lightning-layout-item>
+          <!-- Active Subscriptions -->
           <lightning-layout>
             <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
-              <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Finance with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="=" page-layout="Finance Page Layout"></c-lwc-related-item-enchanced>
+              <!--<c-lwc-active-subscriptions record-id={recordId} str-title="Active Subscriptions"></c-lwc-active-subscriptions>-->
+              <c-lwc-active-subscriptions str-title="Active Subscriptions" record-id={recordId} object-name="Opportunity" target-obj-api-name="Subscription__c" lookup-field-name="AccountId" parent-field-api-name="Account__c" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-active-subscriptions>
             </lightning-layout-item>
           </lightning-layout>
-        </lightning-layout-item>
-      </lightning-layout-item>
 
-    </lightning-layout>
+        </lightning-layout-item>
+
+        <!-- Second Column -->
+        <lightning-layout-item flexibility="auto">
+
+          <!-- Opportunity Product-Vehicles -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Vehicles with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="=" page-layout="Vehicle Page Layout"></c-lwc-related-item-enchanced>
+                <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+
+          <!-- Opportunity Product-Accessories -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Accessories with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="=" page-layout="Accessories Page Layout"></c-lwc-related-item-enchanced>
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+
+          <!-- Opportunity Product-Vehicles With PageLayout -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Finance with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="=" page-layout="Finance Page Layout"></c-lwc-related-item-enchanced>
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+        </lightning-layout-item>
+
+      </lightning-layout>
+
+    </div>
+
+    <div if:true={contactDetailsOn}>
+      <!-- Contact Details -->
+      <lightning-layout >
+        <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+          <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+          <c-lwc-lookup-object str-title="Contact Details (From Account)" record-id={recordId} object-name="Opportunity" lookup-obj-name="Account" lookup-field-name="AccountId" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-lookup-object>
+          <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+
+    <div if:true={preferencesOn}>
+      <lightning-layout>
+        <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+          <c-lwc-opportunity-section-details record-id={recordId} str-title="Preferences" object-name="Opportunity" section-name="Opportunity Information" page-layout-name="Standard"></c-lwc-opportunity-section-details>
+        </lightning-layout-item>
+      </lightning-layout>
+
+    </div>
+
+    <div if:true={activeSubscriptionsOn}>
+      <lightning-layout>
+        <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+          <!--<c-lwc-active-subscriptions record-id={recordId} str-title="Active Subscriptions"></c-lwc-active-subscriptions>-->
+          <c-lwc-active-subscriptions str-title="Active Subscriptions" record-id={recordId} object-name="Opportunity" target-obj-api-name="Subscription__c" lookup-field-name="AccountId" parent-field-api-name="Account__c" filter-field-name="" filter-field-value="" filter-operator-type="="></c-lwc-active-subscriptions>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+
+    <div if:true={productsOn}>
+
+      <lightning-layout>
+        <lightning-layout-item flexibility="auto">
+
+          <!-- Opportunity Product-Vehicles -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Vehicles with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Vehicles" filter-operator-type="=" page-layout="Vehicle Page Layout"></c-lwc-related-item-enchanced>
+                <!--<c-apex-wire-method-to-property>!!!!!!</c-apex-wire-method-to-property>-->
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+
+          <!-- Opportunity Product-Accessories -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Accessories with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Accessories" filter-operator-type="=" page-layout="Accessories Page Layout"></c-lwc-related-item-enchanced>
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+
+          <!-- Opportunity Product-Vehicles With PageLayout -->
+          <lightning-layout-item>
+            <lightning-layout>
+              <lightning-layout-item class="slds-p-top_small slds-p-right_small" flexibility="auto">
+                <c-lwc-related-item-enchanced record-id={recordId} parent-obj-api-name="Opportunity" str-title="Finance with PageLayout" object-name="OpportunityLineItem" parent-field-a-p-i-name="OpportunityId" filter-field-name="ProductType__c" filter-field-value="Finance" filter-operator-type="=" page-layout="Finance Page Layout"></c-lwc-related-item-enchanced>
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
 
   </div>
+
 </template>
